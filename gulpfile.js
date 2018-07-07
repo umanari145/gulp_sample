@@ -1,5 +1,7 @@
 const gulp = require('gulp')
 const del = require('del')
+const runSequence = require( 'run-sequence' ),
+
 pathInfo = {
   srcDir:'src',
   distDir: 'htdocs'
@@ -11,9 +13,9 @@ pathInfo = {
 gulp.task('move', function() {
   console.log('--task move--')
   //ファイルの読み込み
-  //完全再帰にする場合はディレクトリの深度分下記のようにかく
+  //完全再帰にする場合は下記のようにかく
   //特定拡張子の場合は/*/*.scssなど
-  gulp.src(pathInfo.srcDir + '/*/*')
+  gulp.src(pathInfo.srcDir + '/**/*')
   //パイプは単なる結合
   //destは吐き出し
       .pipe(gulp.dest(pathInfo.distDir + '/'))
@@ -27,4 +29,13 @@ gulp.task('clean', function(){
   del([
     pathInfo.distDir
   ])
+})
+
+/**
+ * defaultでは全処理を実装
+ */
+gulp.task('default', function(){
+  runSequence(
+    'clean','move'
+  )
 })
