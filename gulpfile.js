@@ -35,7 +35,9 @@ gulp.task('clean', function(){
  * defaultでは全処理を実装
  */
 gulp.task('default', function(){
-  console.log('--total task clean move --')  
+    //ブランチ２つを両方生かす
+    console.log('--total task clean move --')
+    console.log('--sample branch git command --')
   runSequence(
     'clean','move'
   )
