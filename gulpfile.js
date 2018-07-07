@@ -31,6 +31,9 @@ gulp.task('clean', function(){
   ])
 })
 
+//developに書いた共通の処理はどうするのか
+
+
 /**
  * defaultでは全処理を実装
  */
