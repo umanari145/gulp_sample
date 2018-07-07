@@ -35,6 +35,7 @@ gulp.task('clean', function(){
  * defaultでは全処理を実装
  */
 gulp.task('default', function(){
+  console.log('--sample branch git command --')
   runSequence(
     'clean','move'
   )
